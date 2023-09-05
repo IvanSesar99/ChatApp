@@ -1,0 +1,60 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+.App {
+	background-color: gray;
+	height: 100vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+
+	.header {
+		color: greenyellow;
+		position: absolute;
+		top: 0px;
+		padding: 10px;
+	}
+
+	.users {
+		display: flex;
+		flex-direction: column;
+		width: 20%;
+		border: greenyellow 2px solid;
+		height: 80%;
+		background-color: black;
+	}
+
+	.chat-container {
+		display: flex;
+		flex-direction: column;
+		border: greenyellow 2px solid;
+		width: 100vh;
+		height: 80vh; /* nije 80% */
+		background-color: black;
+		position: relative;
+		.poruke {
+			flex: 1;
+		}
+		.pisanje-poruke {
+			display: flex;
+			input {
+				padding: 0.5em;
+				flex: 1;
+			}
+			.gumb {
+				padding: 0.5em;
+			}
+		}
+	}
+
+	.gumb {
+		width: 10%;
+		height: 7%;
+		position: absolute;
+		bottom: 0px;
+		right: 0;
+	}
+}
