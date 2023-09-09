@@ -4,8 +4,8 @@ const Korisnici = ({ korisnici }) => {
 	console.log(korisnici);
 	return (
 		<div>
-			{korisnici.map((korisnik) => (
-				<p style={{ color: 'white' }} key={korisnik.id}>
+			{korisnici.map((korisnik, i) => (
+				<p style={{ color: 'white' }} key={korisnik.id + i}>
 					{korisnik.clientData.ime}
 				</p>
 			))}

@@ -1,6 +1,7 @@
 import Korisnici from './Korisnici';
+import Poruke from './Poruke';
 import './app.scss';
-import { useState, useEffect, useCallback, useMemo } from 'react';
+import { useState, useEffect, useCallback, useMemo, useRef } from 'react';
 
 const randomColor = require('randomcolor');
 const randomName = require('boring-name-generator');
@@ -76,6 +77,7 @@ function App() {
 				room: 'observable-room',
 				message: poruka,
 			});
+			setInputText('');
 		},
 		[drone]
 	);
@@ -84,9 +86,13 @@ function App() {
 		setInputText(e.target.value);
 	};
 
-	// const pošalji = (tekst) => {
-	// 	pošaljiPoruku(inputText);
-	// };
+	const gumbEnter = useRef(null);
+
+	const pošaljiPorukuEnterom = (event) => {
+		if (event.key === 'Enter') {
+			gumbEnter.current.click();
+		}
+	};
 
 	return (
 		<div className='App'>
@@ -98,9 +104,7 @@ function App() {
 			</div>
 			<div className='chat-container'>
 				<div className='poruke'>
-					{/* {poruke.map(poruka => {
-						if(korisnik )
-					})} */}
+					<Poruke poruke={poruke} korisnik={korisnik} />
 				</div>
 				<div className='pisanje-poruke'>
 					<input
@@ -109,8 +113,13 @@ function App() {
 						placeholder='Upiši poruku...'
 						value={inputText}
 						onChange={(e) => spremiPoruku(e)}
+						onKeyPress={pošaljiPorukuEnterom}
 					/>
-					<button onClick={() => pošaljiPoruku(inputText)} className='gumb'>
+					<button
+						ref={gumbEnter}
+						onClick={() => pošaljiPoruku(inputText)}
+						className='gumb'
+					>
 						Pošalji
 					</button>
 				</div>

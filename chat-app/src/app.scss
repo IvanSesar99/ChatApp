@@ -4,7 +4,7 @@
 	box-sizing: border-box;
 }
 .App {
-	background-color: gray;
+	background-color: rgb(71, 69, 69);
 	height: 100vh;
 	display: flex;
 	justify-content: center;
@@ -12,6 +12,10 @@
 	position: relative;
 
 	.header {
+		font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+			Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+			sans-serif;
+		text-decoration: underline;
 		color: greenyellow;
 		position: absolute;
 		top: 0px;
@@ -19,42 +23,59 @@
 	}
 
 	.users {
+		padding: 1em;
+		border-top-left-radius: 2em;
 		display: flex;
 		flex-direction: column;
 		width: 20%;
 		border: greenyellow 2px solid;
 		height: 80%;
-		background-color: black;
+		background-color: gray;
 	}
 
 	.chat-container {
+		background-color: gray;
 		display: flex;
 		flex-direction: column;
+		border-top-right-radius: 2em;
 		border: greenyellow 2px solid;
 		width: 100vh;
 		height: 80vh; /* nije 80% */
-		background-color: black;
 		position: relative;
 		.poruke {
+			overflow: auto;
+			padding: 8px;
+			flex: 1;
+
+			.poruka {
+				padding: 8px 16px;
+				border-radius: 20px;
+				margin-block: 8px;
+				max-width: 80%;
+				color: black;
+				&.moja {
+					margin-left: auto;
+				}
+			}
+		}
+	}
+	.pisanje-poruke {
+		display: flex;
+		height: 5%;
+		input {
+			padding: 0.5em;
 			flex: 1;
 		}
-		.pisanje-poruke {
-			display: flex;
-			input {
-				padding: 0.5em;
-				flex: 1;
-			}
-			.gumb {
-				padding: 0.5em;
-			}
+		.gumb {
+			padding: 0.5em;
 		}
 	}
+}
 
-	.gumb {
-		width: 10%;
-		height: 7%;
-		position: absolute;
-		bottom: 0px;
-		right: 0;
-	}
+.gumb {
+	width: 10%;
+	height: 5%;
+	position: absolute;
+	bottom: 0px;
+	right: 0;
 }
