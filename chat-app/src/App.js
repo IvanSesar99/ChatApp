@@ -116,6 +116,7 @@ function App() {
 						onKeyPress={pošaljiPorukuEnterom}
 					/>
 					<button
+						disabled={inputText.trim().length === 0}
 						ref={gumbEnter}
 						onClick={() => pošaljiPoruku(inputText)}
 						className='gumb'
